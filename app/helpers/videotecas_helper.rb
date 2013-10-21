@@ -1,0 +1,2 @@
+module VideotecasHelper
+end

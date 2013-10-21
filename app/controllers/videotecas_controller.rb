@@ -1,0 +1,2 @@
+class VideotecasController < ApplicationController
+end

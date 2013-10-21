@@ -1,0 +1,61 @@
+<H3>Efettua qui la tua registrazione: </H3>
+<h4>Errors:<h4>
+<%=form_for @user do |f| %>
+
+<%if @user.errors.any?%>
+<% @user.errors.full_messages.each do |e|%>
+
+<ul><li><%=e%></li></ul>
+
+<%end%>
+<%end%>
+<table bordercolor="Aqua" border="0">
+	<tr>
+		<td><%=f.label :name%>
+			<%=f.text_field :name%>
+		</td>
+		<td><%=f.label :surname%>
+			<%=f.text_field :surname%>
+		</td>
+	</tr>
+		<tr>
+		<td>
+			<%=f.label :city%>
+			<%=f.text_field :city%>
+		</td>
+		<td>
+			<%=f.label :country%>
+			<%=f.text_field :country%>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<%=f.label :DateOfBirth, "Date of Birth"%>
+			<%=f.text_field :DateOfBirth%>
+		</td>
+		<td>
+			<%=f.label :PlaceOfBirth, "Place of Birth"%>
+			<%=f.text_field :PlaceOfBirth%>
+		</td>
+	</tr>
+	
+	<%=f.fields_for :posts do |p|  %>
+	<tr>
+		<td><%=p.label :email%>
+		<%=p.text_field :email%>
+		</td>
+		
+		<td><%=p.label :email_confirmation, "Conferma la tua email"%>
+		<%=p.text_field :email_confirmation%>
+		</td>
+	
+		<td><%=p.label :password%>
+		<%=p.password_field :password%>
+		</td>
+		
+	</tr>
+	<%end%>
+	</table>
+	
+	<%=f.submit "Save"%>
+	<%end%>
